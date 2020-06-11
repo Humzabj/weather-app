@@ -1,3 +1,3 @@
-const yargs = require('yargs')
+require('./command-handler.js')
 const request = require('postman-request')
 

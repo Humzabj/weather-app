@@ -1,4 +1,6 @@
 const yargs = require('yargs')
+const weatherApi = require('./weather-fetch.js')
+const locationApi = require('./location-fetch.js')
 
 yargs.command('get', 'Fetch weather for a location', (yargs) => {
     return yargs
@@ -22,7 +24,14 @@ yargs.command('get', 'Fetch weather for a location', (yargs) => {
         })
 }, (argv) => {
     console.log(argv.adrs, argv.wat, argv.gat)
-
+    locationApi(argv.adrs, argv.gat, (error, data) => {
+        console.log('Error: ', error)
+        console.log('Data: ', data)
+        weatherApi(data, argv.wat, (error, response) => {
+            console.log('Error: ', error)
+            console.log('Data: ', response)
+        })
+    })
     // use callback function here
 })
 .demandCommand()

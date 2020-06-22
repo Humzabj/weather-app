@@ -1,5 +1,3 @@
-
-
 const request = require("postman-request")
 
 const url_template = 'https://api.mapbox.com/geocoding/v5/mapbox.places/{{address}}.json?access_token={{access_token}}&limit=1'

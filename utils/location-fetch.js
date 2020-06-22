@@ -1,5 +1,3 @@
-// pk.eyJ1IjoiaHVtemFiaiIsImEiOiJja2JiZndhcDcwMHdzMzZwaWRxejVhdzVhIn0.6TRU_kmj7qbW1T2mfkPIfA
-// mapbox access token
 
 const request = require("postman-request")
 

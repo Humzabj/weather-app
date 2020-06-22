@@ -1,4 +1,3 @@
-// 1a45de27b760774e05a8b09d4c9b4799 Access token mine
 const request = require('postman-request')
 
 const url_template = 'http://api.weatherstack.com/current?access_key={{access_token}}&query={{latitude}},{{longitude}}&units=m'

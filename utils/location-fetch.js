@@ -1,5 +1,3 @@
-
-
 const request = require("postman-request")
 
 const url_template = 'https://api.mapbox.com/geocoding/v5/mapbox.places/{{address}}.json?access_token={{access_token}}&limit=1'
@@ -9,6 +7,7 @@ const geocode = (address, access_token, callback) => {
     request({url: url, json: true}, (error, response) => {
         if (error) callback('failed to connect to geolocation service')
         else if (response.body.error) callback(response.body.error)
+        else if (response.body.message === 'Not Authorized - Invalid Token') callback(response.body.message)
         else if (response.body.features.length === 0) callback('Unable to find location. Try another search term')
         else callback(undefined, 
             {

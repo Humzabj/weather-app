@@ -9,7 +9,11 @@ const fetchWeather = (location, access_token, callback) => {
     request({url: url, json: true}, (error, response) => {
         if (error) callback('Unable to connect to weather service', undefined)
         else if (response.body.error) callback(response.body.error.info, undefined)
-        else callback(undefined, response.body)
+        else callback(undefined, 
+            {
+                temperature: response.body.current.temperature + '°C',
+                description: response.body.current.weather_descriptions[0]
+            })
     })
 }
 
